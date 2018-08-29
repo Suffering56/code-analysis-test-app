@@ -30,7 +30,7 @@
 
         <pmd.config.location>${project.basedir}/pmd-config.xml</pmd.config.location>
         <checkstyle.config.location>${project.basedir}/checkstyle-config.xml</checkstyle.config.location>
-        <!--<spotbugs.config.location>${project.basedir}/checkstyle-config.xml</spotbugs.config.location>-->
+        <spotbugs.config.location>${project.basedir}/spotbugs-config.xml</spotbugs.config.location>
     </properties>
 
     <build>
@@ -114,6 +114,10 @@
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>3.1.3.1</version>
+                <configuration>
+                    <includeFilterFile>${spotbugs.config.location}</includeFilterFile>
+                    <!--<excludeFilterFile>spotbugs-exclude.xml</excludeFilterFile>-->
+                </configuration>
                 <executions>
                     <execution>
                         <phase>${switcher.checkphase.spotbugs}</phase>
