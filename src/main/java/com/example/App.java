@@ -7,40 +7,47 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class App implements CommandLineRunner {
 
-	private static final String APP_VERSION = "0.1";
+    private static final String APP_VERSION = "0.1";
 
-	public static void main(String[] args) {
-		SpringApplication.run(App.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(App.class, args);
+    }
 
-	@Override
-	public void run(String... args) {
-		System.out.println("APP_VERSION = " + APP_VERSION);
+    @Override
+    public void run(String... args) {
+        System.out.println("APP_VERSION = " + APP_VERSION);
 
-		throwPmdWarning();
-		throwSpotbugsWarning();
-	}
+        throwPmdWarning();
+        throwCheckstyleWarning();
+        throwSpotbugsWarning();
+    }
 
-	private void throwPmdWarning() {
-		try {
-			//throw pmd error
-		} catch (Exception e) {
-			//throw pmd error
-		}
-	}
+    private void throwPmdWarning() {
+        try {
+            //throw pmd error
+        } catch (Exception e) {
+            //throw pmd error
+        }
+    }
 
-	private void throwSpotbugsWarning() {
-		final String s = "012345";
+    private void throwCheckstyleWarning() {
+            if (10 == 10) {
 
-		Integer x = null;
-		if (s.substring(0, 1).equals("0")) {
-			x = 10;
-		}
+        }
+    }
 
-		boolean result = x.equals(15);
+    private void throwSpotbugsWarning() {
+        final String s = "012345";
 
-		if (result) {
-			System.out.println("Unbelievable!");
-		}
-	}
+        Integer x = null;
+        if (s.substring(0, 1).equals("0")) {
+            x = 10;
+        }
+
+        boolean result = x.equals(15);
+
+        if (result) {
+            System.out.println("Unbelievable!");
+        }
+    }
 }
